@@ -1,10 +1,21 @@
 var ws_datos_clientes = [];
-var tbl_cab_asistencia_tbl_alumnos_clase = [{'sTitle': 'ID'}, {'sTitle': 'DESC'}, {'sTitle': '-'}];	
+var tbl_cab_asistencia_tbl_alumnos_clase = [ {
+												'sTitle' : 'ID',
+												"sWidth" : "40px",
+												"sClass" : "text-center"
+											}, {
+												'sTitle' : 'DESC'
+											}, {
+												'sTitle' : '-',
+												"sWidth" : "40px",
+												"sClass" : "text-center"
+											} ];	
 var opciones_tbl_asistencia_tbl_alumnos_clase = {
             responsive: false
             , bLengthChange: false
             , bInfo: false
             , bFilter : false
+            , bAutoWidth : false
             //, bPaginate: true
             , buttons: []
             //, buttons: [{extend: 'excel', text: 'Exportar a Excel', className: 'btn btn-info btn-sm'},{extend: 'csv', text: 'Exportar a CSV', className: 'btn btn-info btn-sm'}]
@@ -47,6 +58,8 @@ function asistencia_eliminar_alumno_clase(cod_cliente){
 	ws_validar = ws('sp_del_alumno_clase' , [cod_cliente,cod_clase,fecha] );
 	if(ws_validar[0].msj == 'ok'){
 		asistencia_llenar_cb_tbl_alumnos_clases(cod_clase , fecha);
+	}else{
+		alert('Error al sacar al alumno de esta clase.');
 	}
 }
 
@@ -68,6 +81,8 @@ function asistencia_llenar_cb_tbl_alumnos_clases(cod_clase , fecha){
 			$('#cb_alumnos_reg_clase').selectpicker('render');	
 			ws_datatable("asistencia_tbl_alumnos_clase", cont_tbl , tbl_cab_asistencia_tbl_alumnos_clase , opciones_tbl_asistencia_tbl_alumnos_clase);
 	
+		}else{
+			ws_datatable("asistencia_tbl_alumnos_clase", [] , tbl_cab_asistencia_tbl_alumnos_clase , opciones_tbl_asistencia_tbl_alumnos_clase);
 		}
 }
 
@@ -132,9 +147,9 @@ function asistencia_llenar_calendario(){
 			
 			asistencia_llenar_cb_tbl_alumnos_clases(calEvent.id , calEvent.fecha);	
 			$("#modal_clientes_clase_registro").on("hidden.bs.modal", function () {
-				//$('#calendar').fullCalendar( 'removeEvents' );
-				//$('#calendar').fullCalendar( 'addEventSource', asistenca_obt_eventos_calendario() )
-				//$('#calendar').fullCalendar('rerenderEvents');
+				$('#calendar').fullCalendar( 'removeEvents' );
+				$('#calendar').fullCalendar( 'addEventSource', asistenca_obt_eventos_calendario() )
+				$('#calendar').fullCalendar('rerenderEvents');
 			});
         	$("#modal_clientes_clase_registro").modal();        
             

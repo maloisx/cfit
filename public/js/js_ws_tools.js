@@ -48,6 +48,7 @@ function ws_datatable(id_div_tbl, data, tbl_cab, opciones) {
         , bLengthChange: false
         , bInfo: false
         , bPaginate: false
+        , bAutoWidth : true
         //, dom: "Blfrtip"
         , dom: '<"row"<"col-xs-6"B><"col-xs-6"f>><"row"<"col-xs-12 "p>>rt<"bottom"><"clear">'
         , buttons: [{extend: 'excel', text: 'Exportar a Excel', className: 'btn btn-info btn-sm'}]
@@ -91,6 +92,7 @@ function ws_datatable(id_div_tbl, data, tbl_cab, opciones) {
         "bScrollCollapse": true,
         //"sScrollY": '93%', 
         "aoColumns": tbl_cab,
+        "bAutoWidth": (opciones.bAutoWidth != undefined)?opciones.bAutoWidth : opciones_default.bAutoWidth,
         "aaData": tbl_data,
         "fixedColumns": true,
         "dom": (opciones.dom != undefined)?opciones.dom : opciones_default.dom,
