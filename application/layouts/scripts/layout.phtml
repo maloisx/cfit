@@ -127,7 +127,7 @@
 		
 				<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="<?php echo $this->util()->getPath();?>bootstrap-select-1.13.1/dist/css/bootstrap-select.min.css">
-	        
+	      
 	        
 	    <script type="text/javascript"  src="<?php echo $this->util()->getPath();?>datatables/js/jquery.dataTables.js"></script>
             <script type="text/javascript"  src="<?php echo $this->util()->getPath();?>datatables/js/dataTables.bootstrap.js"></script>
@@ -151,8 +151,8 @@
             <script type="text/javascript"  src="<?php echo $this->util()->getPath();?>datatables/ext/dataTables.responsive.min.js"></script>
             <script type="text/javascript"  src="<?php echo $this->util()->getPath();?>datatables/ext/responsive.bootstrap.min.js"></script>    
 	        
-	        
-	        		<?php
+	        <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'></script>  
+	        <?php
 			//echo $this->util()->getScript("js/common");		
 			
 			$controller = $this->util()->getScriptJSController();
@@ -259,6 +259,7 @@
 <!--		<script type="text/javascript" src="<?php echo $this->util()->getPath(); ?>MDB/js/compiled.min.js"></script>-->
 		<script type="text/javascript" src="<?php echo $this->util()->getPath(); ?>MDB/js/bootstrap.min.js"></script>
 	    <script type="text/javascript" src="<?php echo $this->util()->getPath(); ?>MDB/js/popper.min.js"></script>
+		
 	    <script type="text/javascript" src="<?php echo $this->util()->getPath(); ?>MDB/js/mdb.js"></script>
 				
 		<script type="text/javascript" src="<?php echo $this->util()->getPath(); ?>bootstrap-select-1.13.1/dist/js/bootstrap-select.min.js"></script>

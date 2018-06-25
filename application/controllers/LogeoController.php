@@ -5,7 +5,7 @@ class LogeoController extends Zend_Controller_Action implements Zend_Auth_Adapte
 	
 	public function init() {
 		$this->view->util()->registerScriptJSController($this->getRequest());
-		$this->view->util()->registerLeaveControllerAction($this->getRequest());
+		//$this->view->util()->registerLeaveControllerAction($this->getRequest());
 	}
 	
     public function indexAction(){
@@ -37,27 +37,36 @@ class LogeoController extends Zend_Controller_Action implements Zend_Auth_Adapte
     }
     
 	public function validarlogeoAction() {   
+		
+		
+		
+		
 		$this->_helper->viewRenderer->setNoRender(); 
 		$this->_helper->layout->disableLayout();
 		$this->_helper->getHelper('ajaxContext')->initContext();
 		
 		if ($this->getRequest()->isXmlHttpRequest()) {
+			echo 'mierda';
+			
+
 			
 			$url = $this->view->util()->getPath();
 
 			$user = trim($this->_request->getPost('user'));
 			$pass = trim($this->_request->getPost('pass'));
 								
-			//echo '->'.$user."\n".'->'.$pass."\n".'->'.$captcha.'('.$dcaptcha->data.')'."\n";
+			echo '->'.$user."\n".'->'.$pass."\n";
 			
 
 				$ns = 'sp_login';
 			    $arraydatos[] = $user;
 			    $arraydatos[] = $pass;
-	
+				
+				//echo $user . '.->' . $pass ;
+				
 				$cn = new Model_DataAdapter();
 				$datos = $cn->ejec_store_procedura_mysql($ns,$arraydatos);
-
+				//print_r($datos);
 				$caddatos = "";
 				
 				if($datos == '' || $datos == null || count($datos)<=0){
@@ -66,7 +75,7 @@ class LogeoController extends Zend_Controller_Action implements Zend_Auth_Adapte
 				}
 				else{
 //					echo $datos[0]->nom;
-					//print_r($datos);
+					//
 					
 					if ($datos[0]->estado == '1'){	
 											
@@ -87,9 +96,9 @@ class LogeoController extends Zend_Controller_Action implements Zend_Auth_Adapte
 					$this->flag = true;
 				}
 				
-				$auth = Zend_Auth::getInstance();
-				$auth->authenticate($this);
-
+				//$auth = Zend_Auth::getInstance();
+				//$auth->authenticate($this);
+			
 		}
 	}
 

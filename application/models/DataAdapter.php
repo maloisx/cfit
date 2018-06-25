@@ -14,7 +14,7 @@ class Model_DataAdapter {
 				if(count($arraydatos) > 0){
 					for($i=0;$i<count($arraydatos);$i++){
 						$valvar = $arraydatos[$i];
-						$valvar = mysql_real_escape_string ($valvar,$conexion);
+						//$valvar = mysql_real_escape_string ($valvar,$conexion);
 						$caddatos.= "'".$valvar."',";
 					}
 					$caddatos = substr($caddatos,0,strlen($caddatos)-1);
@@ -24,18 +24,14 @@ class Model_DataAdapter {
     	
 		$que = "call ".$nombrestore.$caddatos;
 		//echo '<textarea>'.$que.'</textarea>';
+
 		$res = mysql_query($que, $conexion) or die(mysql_error());
 		$tot = mysql_num_rows($res);			
-//	    if ($totEmp > 0) {
+
 	       $conta = 0;
 	       $array = null;
 		   while($row = mysql_fetch_object($res)) {
 		      $array[] = $row;
-//		      for($i = 0 ; $i<count($row);$i++){
-//					$temparray[$i] = $row[$i];
-//	 			}   
-//			$array[$conta] = $temparray;
-//	      	$conta++;
 		   }
 		mysql_close($conexion);
 		return $array;
