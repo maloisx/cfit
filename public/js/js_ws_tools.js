@@ -6,22 +6,31 @@ function ws_contenido_combo(cb_id_html, data, id_seleccionado) {
     cont_combo = "";
     for (var i = 0; i < data.length; i++) {
         var item = data[i];
+        
         ind = 0;
         id = null;
         val = null;
+
         if(typeof item === 'object'){
-            $.each(item, function (index_item, value_item) {
+           /* $.each(item, function (index_item, value_item) {
                 if (ind == 0) {
                     id = value_item;
                     ind++;
                 } else if (ind == 1) {
                     val = value_item;
                 }
-            });
+            });*/
+            id = item[0];
+            val = item[1];
+            //console.log(id + '->'+val);
         }else{
             id = item;
             val = item;
         }
+
+
+
+
         //console.log(id + " // " + val);
         if (id_seleccionado == id) {
             cont_combo += "<option value='" + id + "' selected='selected' >" + val + "</option>";
@@ -49,8 +58,9 @@ function ws_datatable(id_div_tbl, data, tbl_cab, opciones) {
         , bInfo: false
         , bPaginate: false
         , bAutoWidth : true
+        , columnDefs : []
         //, dom: "Blfrtip"
-        , dom: '<"row"<"col-xs-6"B><"col-xs-6"f>><"row"<"col-xs-12 "p>>rt<"bottom"><"clear">'
+        , dom: '<"row"<"col-6"B><"col-6 float-right"f>><"row"<"col-12 "p>>rt<"bottom"><"clear">'
         , buttons: [{extend: 'excel', text: 'Exportar a Excel', className: 'btn btn-info btn-sm'}]
     };
 
@@ -59,10 +69,13 @@ function ws_datatable(id_div_tbl, data, tbl_cab, opciones) {
         var item = data[i];
         var tbl_row = [];
         $.each(item, function (index_item, value_item) {
-            tbl_row.push(value_item);
+            if(isNaN(index_item))
+                tbl_row.push(value_item);
         });
+        
         tbl_data.push(tbl_row);
     }
+    //console.log(tbl_data);
 
     var tbl_n = parseInt(Math.random() * 99999 + 1);
 //    var html_tbl = "<table border='1' class='table table-striped table-bordered dt-responsive' id='tbl_dt_" + tbl_n + "'></table>";
@@ -93,6 +106,7 @@ function ws_datatable(id_div_tbl, data, tbl_cab, opciones) {
         //"sScrollY": '93%', 
         "aoColumns": tbl_cab,
         "bAutoWidth": (opciones.bAutoWidth != undefined)?opciones.bAutoWidth : opciones_default.bAutoWidth,
+        "columnDefs" : (opciones.columnDefs != undefined)?opciones.columnDefs : opciones_default.columnDefs,
         "aaData": tbl_data,
         "fixedColumns": true,
         "dom": (opciones.dom != undefined)?opciones.dom : opciones_default.dom,
@@ -107,4 +121,15 @@ function ws_datatable(id_div_tbl, data, tbl_cab, opciones) {
     });
 
     return tbl;
+}
+
+function tbl_ext_btn(name_btn, func) {
+
+    var btn_n = parseInt(Math.random() * 99999 + 1);
+    if (func != undefined) {
+        html_btn = '<button id="btn_' + btn_n + '" onclick="' + func + '" type="button" class="btn btn-info"><span class="fa fa-' + name_btn + '"></span></button>';
+    } else {
+        html_btn = '<button id="btn_' + btn_n + '" type="button" class="btn btn-info" onclick=""><span class="fa fa-' + name_btn + '"></span></button>';
+    }
+    return html_btn;
 }
