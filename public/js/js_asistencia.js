@@ -1,4 +1,4 @@
-var ws_datos_clientes = [];
+
 var tbl_cab_asistencia_tbl_alumnos_clase = [ {
 												'sTitle' : 'ID',
 												"sWidth" : "40px",
@@ -41,9 +41,9 @@ function charge_list_boostrap_select_datatable(){
 	    }
 		
 		cad_id = cad_id.substr(0,cad_id.length-1);
-		console.log([cad_id,id_clase,fecha] );
+		//console.log([cad_id,id_clase,fecha] );
 		ws_reg = ws('sp_reg_alumno_clase' , [cad_id,id_clase,fecha] );	
-		console.log(ws_reg[0].msj);
+		//console.log(ws_reg[0].msj);
 	    var tbl = ws_datatable("asistencia_tbl_alumnos_clase", datos , tbl_cab_asistencia_tbl_alumnos_clase , opciones_tbl_asistencia_tbl_alumnos_clase);
     
     }
@@ -66,7 +66,7 @@ function asistencia_eliminar_alumno_clase(cod_cliente){
 function asistencia_llenar_cb_tbl_alumnos_clases(cod_clase , fecha){
 	ws_datos_clientes_clases = ws('sp_obt_alumno_clase' , [cod_clase,fecha] );
 		if(ws_datos_clientes_clases){
-			console.log(ws_datos_clientes_clases);
+			//console.log(ws_datos_clientes_clases);
 			var cont_cb = [];
 			var cont_tbl = [];
 			for(var i = 0 ; i < ws_datos_clientes_clases.length ; i ++){
@@ -141,8 +141,9 @@ function asistencia_llenar_calendario(){
         	$("#lb_disciplina").html("Registro de Alumnos a Clases de " + calEvent.disciplina + "para el "+calEvent.fecha);
         	$("#lb_instructor").html(calEvent.personal);
         	$("#lb_sala").html(calEvent.sala);
-        	$("#lb_aforo").html(calEvent.aforo);
-        	
+			$("#lb_aforo").html(calEvent.aforo);
+			
+        	var ws_datos_clientes = ws('sp_cliente' , [''] );
         	ws_contenido_combo('cb_alumnos_reg_clase', ws_datos_clientes, '');
 			
 			asistencia_llenar_cb_tbl_alumnos_clases(calEvent.id , calEvent.fecha);	
@@ -174,7 +175,7 @@ function asistencia_llenar_calendario(){
 
 function asistencia_index(){
 
-	ws_datos_clientes = ws('sp_cliente' , [''] );
+	
 	ws_datatable("asistencia_tbl_alumnos_clase", [] , tbl_cab_asistencia_tbl_alumnos_clase , opciones_tbl_asistencia_tbl_alumnos_clase);
 	$('#cb_alumnos_reg_clase').change(function(event){ charge_list_boostrap_select_datatable(); });
 	asistencia_llenar_calendario();

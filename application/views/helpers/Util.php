@@ -515,13 +515,13 @@ public function SetTitlePag($title) {
 		
 		for($i=0;$i<count($datos_menu);$i++){	
 							
-			$cod_obj = $datos_menu[$i]->cod_menu;
-		    $desc_obj = $datos_menu[$i]->desc_menu;
-		    $cod_obj_padre =  $datos_menu[$i]->cod_padre;
-		    $url_obj = $datos_menu[$i]->url;
+			$cod_obj = $datos_menu[$i]['cod_menu'];
+		    $desc_obj = $datos_menu[$i]['desc_menu'];
+		    $cod_obj_padre =  $datos_menu[$i]['cod_padre'];
+		    $url_obj = $datos_menu[$i]['url'];
 		    
-		    $orden = $datos_menu[$i]->orden;
-		    $cant_hijos = $datos_menu[$i]->hijos;
+		    $orden = $datos_menu[$i]['orden'];
+		    $cant_hijos = $datos_menu[$i]['hijos'];
 		    
 			if($codmenu == $cod_obj_padre){				
 				$cod_obj_padre = (($codmenu=='0')?'sidebar': 'menu'.$cod_obj_padre) ;				
