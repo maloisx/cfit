@@ -142,7 +142,7 @@ function asistencia_llenar_calendario(){
         	$("#lb_instructor").html(calEvent.personal);
         	$("#lb_sala").html(calEvent.sala);
         	$("#lb_aforo").html(calEvent.aforo);
-        	
+        	ws_datos_clientes = ws('sp_cliente' , [''] );
         	ws_contenido_combo('cb_alumnos_reg_clase', ws_datos_clientes, '');
 			
 			asistencia_llenar_cb_tbl_alumnos_clases(calEvent.id , calEvent.fecha);	
@@ -174,7 +174,7 @@ function asistencia_llenar_calendario(){
 
 function asistencia_index(){
 
-	ws_datos_clientes = ws('sp_cliente' , [''] );
+	
 	ws_datatable("asistencia_tbl_alumnos_clase", [] , tbl_cab_asistencia_tbl_alumnos_clase , opciones_tbl_asistencia_tbl_alumnos_clase);
 	$('#cb_alumnos_reg_clase').change(function(event){ charge_list_boostrap_select_datatable(); });
 	asistencia_llenar_calendario();
