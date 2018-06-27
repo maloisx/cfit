@@ -15,7 +15,7 @@ select.selectpicker {
   /*IE9 and below*/
 }
 .bootstrap-select > .dropdown-toggle {
-  position: relative;
+  /*position: relative;*/
   width: 100%;
   z-index: 1;
   text-align: right;

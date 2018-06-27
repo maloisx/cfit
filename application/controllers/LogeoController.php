@@ -46,18 +46,14 @@ class LogeoController extends Zend_Controller_Action implements Zend_Auth_Adapte
 		$this->_helper->getHelper('ajaxContext')->initContext();
 		
 		if ($this->getRequest()->isXmlHttpRequest()) {
-			echo 'mierda';
-			
-
-			
+	
 			$url = $this->view->util()->getPath();
 
 			$user = trim($this->_request->getPost('user'));
 			$pass = trim($this->_request->getPost('pass'));
 								
-			echo '->'.$user."\n".'->'.$pass."\n";
+//			echo '->'.$user."\n".'->'.$pass."\n";
 			
-
 				$ns = 'sp_login';
 			    $arraydatos[] = $user;
 			    $arraydatos[] = $pass;
@@ -77,14 +73,14 @@ class LogeoController extends Zend_Controller_Action implements Zend_Auth_Adapte
 //					echo $datos[0]->nom;
 					//
 					
-					if ($datos[0]->estado == '1'){	
+					if ($datos[0]['estado'] == '1'){	
 											
 						$ddatosuserlog = new Zend_Session_Namespace('datosuserlog');				
-						$ddatosuserlog->codemp = $datos[0]->cod_personal;
-						$ddatosuserlog->nombre = $datos[0]->nom;
-						$ddatosuserlog->apepat = $datos[0]->appat;
-						$ddatosuserlog->apemat = $datos[0]->apmat;
-						$ddatosuserlog->dni = $datos[0]->dni;					
+						$ddatosuserlog->codemp = $datos[0]['cod_personal'];
+						$ddatosuserlog->nombre = $datos[0]['nom'];
+						$ddatosuserlog->apepat = $datos[0]['appat'];
+						$ddatosuserlog->apemat = $datos[0]['apmat'];
+						$ddatosuserlog->dni = $datos[0]['dni'];					
 						$ddatosuserlog->usuario = $user; 
 					
 						echo '<script language=\"JavaScript\">window.open(\''.$url.'index.php\', \'_self\')</script>';

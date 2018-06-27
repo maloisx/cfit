@@ -1,4 +1,195 @@
 <!-- --------------   Modal --------------  -->
+  <div class="modal fade" id="modal_nueva_membresia" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="lb_title_nueva_membresia"></h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>          
+        </div>
+        <div class="modal-body">
+        
+        
+        <div class="row">
+					<div class="col-md-1"></div>
+					<div class="col-md-10">						
+					    <label for="cb_modal_nueva_membresia_planes">Membresias</label>
+					    <select class="selectpicker" id="cb_modal_nueva_membresia_planes"  data-size="10" data-live-search="true" data-width="100%" data-actions-box="false">
+					      
+				    	</select>
+					</div>	
+					<div class="col-md-1"></div>					
+				</div> 
+        <br>
+        <div class="row">
+<!--        			<div class="col-md-1"></div>-->
+					<div class="col-md-12">
+		        <!-- Nav tabs -->
+					<ul class="nav nav-tabs nav-justified primary-color" role="tablist">
+					    <li id="li_membresia_datos" class="nav-item">
+					        <a class="nav-link active" data-toggle="tab" href="#tab_membresia_datos" role="tab"><i class="fa fa-pencil-square-o"></i> Datos</a>
+					    </li>
+					    <li id="li_membresia_abonos" class="nav-item">
+					        <a class="nav-link" data-toggle="tab" href="#tab_membresia_abonos" role="tab"><i class="fa fa-money"></i> Abonos</a>
+					    </li>
+					    <li id="li_membresia_freeze" class="nav-item">
+					        <a class="nav-link" data-toggle="tab" href="#tab_membresia_freeze" role="tab"><i class="fa fa-star"></i> Congelamientos</a>
+					    </li>
+					</ul>
+					<!-- Tab panels -->
+					<div class="tab-content">
+					    <!--Panel 1----------------------------------------------------------------------------------------------------------------------->
+					    <div class="tab-pane fade in show active" id="tab_membresia_datos" role="tabpanel">
+					    	
+						<div class="row">
+							<div class="col-md-12">
+								<div class="card card-body">
+										<div class="row">
+											<div class="col-md-1"></div>
+											<div class="col-md-10">
+												<div class="md-form">
+												    <input type="text" disabled id="txt_membresia" class="form-control">
+												    <label for="txt_membresia" class="active">Membresia</label>
+												</div>
+											</div>
+											<div class="col-md-1"></div>
+										</div>
+										
+										<div class="row">
+											<div class="col-md-1"></div>
+											<div class="col">
+												<div class="md-form">
+												    <input type="text" disabled id="txt_membresia_disciplina_principal" class="form-control">
+												    <label for="txt_membresia_disciplina_principal" class="active">Disciplina</label>
+												</div>
+											</div>
+											<div class="col">
+												<div class="md-form">
+												    <input type="text" disabled id="txt_membresia_precio" class="form-control">
+												    <label for="txt_membresia_precio" class="active">Precio</label>
+												</div>
+											</div>
+											<div class="col">
+												<div class="md-form">
+												    <input type="text" disabled id="txt_membresia_sesiones" class="form-control">
+												    <label for="txt_membresia_sesiones" class="active">Sesiones</label>
+												</div>
+											</div>
+											<div class="col">
+												<div class="md-form">
+												    <input type="text" disabled id="txt_membresia_freeze" class="form-control">
+												    <label for="txt_membresia_freeze" class="active">Congelamiento</label>
+												</div>
+											</div>
+											<div class="col-md-1"></div>
+										</div>
+										
+										<div class="row">
+											<div class="col-md-1"></div>									
+											<div class="col">
+												<div class="md-form">
+													<label for="cb_membresia_disciplina_extras" class="active">Disciplinas Extras</label>
+												    <select class="selectpicker" id="cb_membresia_disciplina_extras" data-size="10" data-live-search="true" data-width="100%" data-actions-box="false">
+							      				
+						    						</select>
+												</div>
+											</div>
+											<div class="col-md-1"></div>
+										</div>
+										<hr>
+										<div class="row">
+											<div class="col-md-1"></div>
+											<div class="col">
+												<div class="md-form">
+												    <label for="cb_membresia_tipo_membresia" class="active">Tipo de Membresia</label>
+												    <select class="selectpicker" id="cb_membresia_tipo_membresia" data-size="10" data-live-search="false" data-width="100%" data-actions-box="false">
+							      				
+						    						</select>
+												</div>
+											</div>
+											<div class="col">
+												<div class="md-form">
+												    <input type="date" id="txt_membresia_fecha_inicio" class="form-control">
+												    <label for="txt_membresia_fecha_inicio" class="active">Fecha de inicio</label>
+												</div>
+											</div>
+											<div class="col">
+												<div class="md-form">
+												    <input type="text" id="txt_membresia_descuento_moneda" class="form-control">
+												    <label for="txt_membresia_descuento_moneda" >Descuento</label>
+												</div>
+											</div>
+											<div class="col-md-1"></div>
+										</div>
+										<div class="row">
+											<div class="col-md-1"></div>									
+											<div class="col">
+												<div class="md-form">
+													<label for="cb_membresia_vendedor" class="active">vendedor</label>
+												    <select class="selectpicker" id="cb_membresia_vendedor" data-size="10" data-live-search="true" data-width="100%" data-actions-box="false">
+							      				
+						    						</select>
+												</div>
+											</div>
+											<div class="col-md-1"></div>
+										</div>
+										
+								</div>
+							</div>	
+									
+						</div> 
+					    </div>
+					    <!--/.Panel 1----------------------------------------------------------------------------------------------------------------------->
+					    <!--/.Panel 2----------------------------------------------------------------------------------------------------------------------->
+					    <div class="tab-pane fade" id="tab_membresia_abonos" role="tabpanel">
+					    	<div class="card card-body">
+					    	
+					    		<div class="row">								
+									<div class="col-md-12">
+										<div class="md-form">
+											<input type="text" disabled id="txt_membresia_precio_final" class="form-control">
+											<label for="txt_membresia_precio_final" class="active">Monto a cancelar</label>
+										</div>
+									</div>
+								</div>		
+								<div class="row">								
+									<div class="col-md-12">
+										<button type="button" class="btn btn-primary" id="btn_membresia_anidir_abono"><i class="fa fa-money" aria-hidden="true"></i> A&ntilde;adir Abono</button>
+									</div>
+								</div>							
+								<div class="card card-body">
+									<div class="row">								
+										<div class="col-md-12">
+											<div id="tbl_membresia_abonos">
+												
+											</div>
+										</div>
+										<div class="col-md-1"></div>
+									</div>		
+								</div>
+								
+					    	</div>
+					    </div>
+					    <!--/.Panel 2----------------------------------------------------------------------------------------------------------------------->
+					    <!--/.Panel 3----------------------------------------------------------------------------------------------------------------------->
+					    <div class="tab-pane fade" id="tab_membresia_freeze" role="tabpanel">
+					    	CONGELAMIENTOS
+					    </div>
+					    <!--/.Panel 3----------------------------------------------------------------------------------------------------------------------->
+					</div>    
+				<!-- /.NAVBAR-------------	-->
+         	</div>
+         </div>       
+        </div>
+      </div>
+      
+    </div>
+  </div>  
+<!-- --------------   Modal --------------  -->
+
+
+<!-- --------------   Modal --------------  -->
   <div class="modal fade" id="modal_clientes_mantenimiento" role="dialog">
     <div class="modal-dialog modal-lg">
     
@@ -10,33 +201,154 @@
         </div>
         <div class="modal-body">
 
-        	<input type="hidden" id="hd_id_clase" value="">
-					<input type="hidden" id="hd_fecha" value="">
-            <div class="row">
-				<div class="col-md-2"><p class="font-weight-bold">Instructor:</p></div>
-				<div class="col-md-4" ><p id="lb_instructor" ></p> </div>
-				<div class="col-md-1"> <p class="font-weight-bold">Sala: </p></div>
-				<div class="col-md-3" ><p id="lb_sala" ></p> </div>
-				<div class="col-md-1"> <p class="font-weight-bold">Aforo: </p></div>
-				<div class="col-md-1" ><p id="lb_aforo" ></p> </div>
-			</div>			
-			<div class="row">
-				<div class="col-md-2"><p class="font-weight-bold">Alumnos:</p></div>
-				<div class="col-md-10 input-field"  >
-						<select id="cb_alumnos_reg_clase" class="selectpicker"  data-size="10" multiple data-live-search="true" data-width="95%" data-actions-box="false" >
-						  
-						</select>
-				</div>
-			</div>
+        	<input type="hidden" id="hd_cod_cliente" value="">
 			
-					<div class="row">
-							<div class="input-field col-sm-1"></div> 
-							<div class="col-sm-11">   
-									<div id="asistencia_tbl_alumnos_clase" >
-											
-									</div>
+            <!-- Nav tabs -->
+			<ul class="nav nav-tabs nav-justified primary-color" role="tablist">
+			    <li id="li_perfil" class="nav-item">
+			        <a class="nav-link active" data-toggle="tab" href="#tab_cliente_perfil" role="tab"><i class="fa fa-user"></i> Perfil</a>
+			    </li>
+			    <li id="li_pagos" class="nav-item">
+			        <a class="nav-link" data-toggle="tab" href="#tab_cliente_pagos" role="tab"><i class="fa fa-money"></i> Membresias</a>
+			    </li>
+			</ul>
+			<!-- Tab panels -->
+			<div class="tab-content">
+			    <!--Panel 1----------------------------------------------------------------------------------------------------------------------->
+			    <div class="tab-pane fade in show active" id="tab_cliente_perfil" role="tabpanel">
+			    	<!-- perfil -->	
+			    	<br>	
+			    	<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-5">
+							<div class="md-form">
+							    <input type="text" id="txt_dni" class="form-control">
+							    <label for="txt_dni" >DNI</label>
 							</div>
+						</div>
+					</div>	       
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-5">
+							<div class="md-form">
+							    <input type="text" id="txt_nombre" class="form-control">
+							    <label for="txt_nombre" >Nombres</label>
+							</div>
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-5">
+							<div class="md-form">
+							    <input type="text" id="txt_appat" class="form-control">
+							    <label for="txt_appat" >Apellido Paterno</label>
+							</div>
+						</div>	
+						<div class="col-md-5">
+							<div class="md-form">
+							    <input type="text" id="txt_apmat" class="form-control">
+							    <label for="txt_apmat" >Apellido Materno</label>
+							</div>
+						</div>		
+						<div class="col-md-1"></div>
 					</div>
+					
+					<div class="row">
+					<div class="col-md-1"></div>
+						<div class="col-md-5">
+							<div class="md-form">
+							    <input type="date" id="txt_fec_nac" class="form-control" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" value="">
+							    <label for="txt_fec_nac" class="active" >Fecha de Nacimiento</label>
+							</div>
+						</div>	
+						<div class="col-md-5">
+							<div class="md-form input-field">							
+							    <select id="cb_sexo" class="selectpicker"  data-size="3" data-live-search="false" data-width="100%" data-actions-box="false" >
+						  			<option value="" disabled selected>Selecciona..</option>
+								    <option value="M">Masculino</option>
+								    <option value="F">Femenino</option>
+								</select>
+								<label class="active">Sexo</label>
+							</div>
+						</div>	
+						<div class="col-md-1"></div>					
+					</div>
+										
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-3">
+							<div class="md-form">
+							    <input type="text" id="txt_telefono" class="form-control">
+							    <label for="txt_telefono" >Telefono</label>
+							</div>
+						</div>	
+						<div class="col-md-3">
+							<div class="md-form">
+							   <input type="text" id="txt_celular" class="form-control">
+							    <label for="txt_celular" >Celular</label>
+							</div>
+						</div>	
+						<div class="col-md-4">
+							<div class="md-form input-field">							
+							    <input type="text" id="txt_email" class="form-control">
+							    <label for="txt_email" >Correo</label>
+							</div>
+						</div>	
+						<div class="col-md-1"></div>					
+					</div>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<div class="md-form">
+							    <input type="text" id="txt_direccion" class="form-control">
+							    <label for="txt_direccion" >Direccion</label>
+							</div>
+						</div>
+					</div>	  
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-7">
+							<div class="md-form">
+							    <input type="text" id="txt_contact_emergencia" class="form-control">
+							    <label for="txt_contact_emergencia" >Contacto de Emergencia</label>
+							</div>
+						</div>	
+						<div class="col-md-3">
+							<div class="md-form">
+							    <input type="text" id="txt_telefono_emergencia" class="form-control">
+							    <label for="txt_telefono_emergencia" >Telefono de Emergencia</label>
+							</div>
+						</div>		
+						<div class="col-md-1"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<button type="button" class="btn btn-primary" onclick="cliente_guardar_perfil()" >Guardar</button>
+						</div>						
+					</div>
+			        <!--/. perfil -->
+			    </div>
+			    <!--/.Panel 1----------------------------------------------------------------------------------------------------------------------->
+			    <!--Panel 2----------------------------------------------------------------------------------------------------------------------->
+			    <div class="tab-pane fade" id="tab_cliente_pagos" role="tabpanel">
+			        	<div class="row">
+							<div class="col-md-12 text-right">
+								<button type="button" class="btn btn-primary" onclick="cliente_nueva_membresia()" >A&Ntilde;adir Membresia</button>
+							</div>						
+						</div>
+			    		<div class="card card-body">
+						    <h4 class="card-title">Membresias</h4>						    
+						    <div class="flex-row">
+						        <div class="card card-body">m1</div>
+						        <div class="card card-body">m2</div>
+						        <div class="card card-body">m3</div>
+						        <div class="card card-body">m4</div>
+						    </div>
+						</div>    
+			        
+			    </div>
+			    <!--/.Panel 2----------------------------------------------------------------------------------------------------------------------->
+			</div>
 
 
 					
@@ -58,13 +370,19 @@
 </div>
 <br>
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-1"></div>
+	<div class="col-md-10">
 		<div id="tbl_clientes" >
 			            
 		</div>
 	</div>
+	<div class="col-md-1"></div>
 </div>
 
 <script>
+$(document).ready(function() {
 	clientes_index();
+//	$('.mdb-select').material_select();
+});
+	
 </script>

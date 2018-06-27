@@ -1638,8 +1638,10 @@
       if (this.selectpicker.current.data.length && this.selectpicker.current.data[this.selectpicker.current.data.length - 1].position > this.sizeInfo.menuInnerHeight) {
         this.sizeInfo.hasScrollBar = true;
         this.sizeInfo.totalMenuWidth = this.sizeInfo.menuWidth + this.sizeInfo.scrollBarWidth;
-
-        this.$menu.css('min-width', this.sizeInfo.totalMenuWidth);
+        
+        //modificado por miguel villanueva 20180626 2022 -- acortaba el combo
+        //this.$menu.css('min-width', this.sizeInfo.totalMenuWidth);
+        //console.log(this.sizeInfo.totalMenuWidth);
       }
 
       if (this.dropdown && this.dropdown._popper) this.dropdown._popper.update();
