@@ -46,7 +46,7 @@ responsive: false
 , bInfo: false
 , bFilter : true
 , bAutoWidth : true
-, columnDefs : [{ "visible": false, "targets": [0,2,3,4,7,8,9,10,11,12,13,14] }]
+, aoColumnDefs : [{ "visible": false, "targets": [0,2,3,4,7,8,9,10,11,12,13,14] }]
 , bPaginate: true
 //, buttons: []
 , buttons: [{extend: 'excel', text: 'Exportar a Excel', className: 'btn btn-info btn-sm'},{text:'NUEVO CLIENTE',action:function( e, dt, node, config ) {cliente_mantenimiento_modal('')},className:'btn btn-info btn-sm'}]
@@ -55,16 +55,19 @@ responsive: false
 
 var tbl_cab_membresia_abonos = [ {
     'sTitle' : 'MONTO',
-    "sWidth" : "23%"
+    "sWidth" : "12%"
 },{
-    'sTitle' : 'TIP. PAGO',
-    "sWidth" : "23%"
+    'sTitle' : 'MET. PAGO',
+    "sWidth" : "25%"
 }, {
     'sTitle' : 'TIP. COMPRO.',
-    "sWidth" : "23%"
+    "sWidth" : "25%"
 },{
     'sTitle' : 'NRO COMPRO.',
-    "sWidth" : "23%"
+    "sWidth" : "15%"
+},{
+    'sTitle' : 'FEC. PAGO.',
+    "sWidth" : "15%"
 },{
     'sTitle' : '-',
     "sWidth" : "8%",
@@ -77,8 +80,9 @@ var opciones_tbl_membresia_abonos  = {
 		, bLengthChange: false
 		, bInfo: false
 		, bFilter : false
+		, bSort : false
 		, bAutoWidth : false
-		, columnDefs : []
+		//, aoColumnDefs :  { "Sortable": false, "targets": [ 0 ,1,2,3,4 ] }
 		, bPaginate: false
 		, buttons: []
 		//, buttons: [{extend: 'excel', text: 'Exportar a Excel', className: 'btn btn-info btn-sm'},{text:'NUEVO CLIENTE',action:function( e, dt, node, config ) {cliente_mantenimiento_modal('')},className:'btn btn-info btn-sm'}]
@@ -194,3 +198,49 @@ function cliente_nueva_membresia(){
 	var tbl = ws_datatable("tbl_membresia_abonos", [] , tbl_cab_membresia_abonos , opciones_tbl_membresia_abonos);
 	
 }
+
+function cliente_membresia_anidir_abono(){
+	
+	ws_met_pago = ws('sp_metodo_pago' , '' );
+	ws_tipo_comprobante = ws('sp_comprobante' , '' ); 
+	
+	var cb_membresia_abono_met_pago = ws_contenido_combo('', ws_met_pago, '');
+	var cb_membresia_abono_comprobante = ws_contenido_combo('', ws_tipo_comprobante, '');
+	
+	var n = parseInt(Math.random() * 99999 + 1);
+	var row = [	'<input type="text" id="txt_membresia_abono_'+n+'+_monto" class="form-control">'
+	          , '<select class="selectpicker" id="cb_membresia_abono_'+n+'+_met_pago" data-size="10" data-live-search="false" data-width="100%" data-actions-box="false">'+cb_membresia_abono_met_pago+'</select>'
+	          , '<select class="selectpicker" id="cb_membresia_abono_'+n+'+_tipo_comprobante" data-size="10" data-live-search="false" data-width="100%" data-actions-box="false">'+cb_membresia_abono_comprobante+'</select>'
+	          , '<input type="text" id="txt_membresia_abono_'+n+'+_nro_comprobante" class="form-control">'
+	          , '<input type="date" id="txt_membresia_abono_'+n+'+_fecha_pago" class="form-control">' 
+	          ,'<span class="fa fa-remove row_'+n+'" onclick="cliente_membresia_eliminar_abono('+n+')"></span>' ];
+	//tbl_data_abono.push(row);
+	
+	//var tbl = ws_datatable("tbl_membresia_abonos", tbl_data_abono , tbl_cab_membresia_abonos , opciones_tbl_membresia_abonos);
+	
+	var tbl = $('#tbl_dt_tbl_membresia_abonos').dataTable();	
+	tbl.fnAddData( row );
+	
+	$('.selectpicker').selectpicker({style: 'btn-info'});
+}
+
+function cliente_membresia_eliminar_abono(n){
+	//console.log(n);
+	var tbl = $('#tbl_dt_tbl_membresia_abonos').dataTable();	
+	var nNodes = tbl.fnGetNodes( );
+//	console.log(nNodes);
+	var pos = null;
+	for(var i= 0 ; i<nNodes.length ; i++){
+		var row = nNodes[i];
+		var str = row.innerHTML;
+		if(str.search("row_"+n) > -1 ){
+			pos = i;
+			break;
+		}
+	}
+	console.log(n + " -> row : " + pos );
+	tbl.fnDeleteRow( pos );
+	tbl.fnDraw();
+}
+
+

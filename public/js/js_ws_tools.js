@@ -39,9 +39,13 @@ function ws_contenido_combo(cb_id_html, data, id_seleccionado) {
         }
     }
     //console.log(cont_combo);
-    $('#' + cb_id_html).html(cont_combo);
-//    $('#' + cb_id_html).material_select();
-    $('#' + cb_id_html).selectpicker('refresh');
+    
+    if(cb_id_html != '') {
+    	$('#' + cb_id_html).html(cont_combo);
+    	$('#' + cb_id_html).selectpicker('refresh');
+    }else{
+    	return cont_combo;
+    }    
 }
 
 
@@ -58,7 +62,8 @@ function ws_datatable(id_div_tbl, data, tbl_cab, opciones) {
         , bInfo: false
         , bPaginate: false
         , bAutoWidth : true
-        , columnDefs : []
+        , aoColumnDefs : []
+        , bSort: true                
         //, dom: "Blfrtip"
         , dom: '<"row"<"col-6"B><"col-6 float-right"f>><"row"<"col-12 "p>>rt<"bottom"><"clear">'
         , buttons: [{extend: 'excel', text: 'Exportar a Excel', className: 'btn btn-info btn-sm'}]
@@ -105,8 +110,9 @@ function ws_datatable(id_div_tbl, data, tbl_cab, opciones) {
         "bScrollCollapse": true,
         //"sScrollY": '93%', 
         "aoColumns": tbl_cab,
+        "bSort" : (opciones.bSort != undefined)?opciones.bSort : opciones_default.bSort,
         "bAutoWidth": (opciones.bAutoWidth != undefined)?opciones.bAutoWidth : opciones_default.bAutoWidth,
-        "columnDefs" : (opciones.columnDefs != undefined)?opciones.columnDefs : opciones_default.columnDefs,
+        "aoColumnDefs" : (opciones.aoColumnDefs != undefined)?opciones.aoColumnDefs : opciones_default.aoColumnDefs,
         "aaData": tbl_data,
         "fixedColumns": true,
         "dom": (opciones.dom != undefined)?opciones.dom : opciones_default.dom,
