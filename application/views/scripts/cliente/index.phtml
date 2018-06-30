@@ -22,7 +22,7 @@
 					<div class="col-md-1"></div>					
 				</div> 
         <br>
-        <div class="row">
+        <div class="row" id="div_content_nueva_membresia">
 <!--        			<div class="col-md-1"></div>-->
 					<div class="col-md-12">
 		        <!-- Nav tabs -->
@@ -39,7 +39,7 @@
 					</ul>
 					<!-- Tab panels -->
 					<div class="tab-content">
-					    <!--Panel 1----------------------------------------------------------------------------------------------------------------------->
+					    <!-- Panel 1 --------------------------------------------------------------------------------------------------------------------- -->
 					    <div class="tab-pane fade in show active" id="tab_membresia_datos" role="tabpanel">
 					    	
 						<div class="row">
@@ -48,9 +48,9 @@
 										<div class="row">
 											<div class="col-md-1"></div>
 											<div class="col-md-10">
-												<div class="md-form">
-												    <input type="text" disabled id="txt_membresia" class="form-control">
-												    <label for="txt_membresia" class="active">Membresia</label>
+												<div class="md-form">												
+												    <input type="text" readonly id="txt_membresia" class="form-control">
+												    <label for="txt_membresia" class="lbl">Membresia</label>
 												</div>
 											</div>
 											<div class="col-md-1"></div>
@@ -60,26 +60,26 @@
 											<div class="col-md-1"></div>
 											<div class="col">
 												<div class="md-form">
-												    <input type="text" disabled id="txt_membresia_disciplina_principal" class="form-control">
-												    <label for="txt_membresia_disciplina_principal" class="active">Disciplina</label>
+												    <input type="text" readonly id="txt_membresia_disciplina_principal" class="form-control">
+												    <label for="txt_membresia_disciplina_principal" class="lbl">Disciplina</label>
 												</div>
 											</div>
 											<div class="col">
 												<div class="md-form">
-												    <input type="text" disabled id="txt_membresia_precio" class="form-control">
-												    <label for="txt_membresia_precio" class="active">Precio</label>
+												    <input type="text" readonly id="txt_membresia_precio" class="form-control">
+												    <label for="txt_membresia_precio" class="lbl">Precio</label>
 												</div>
 											</div>
 											<div class="col">
 												<div class="md-form">
-												    <input type="text" disabled id="txt_membresia_sesiones" class="form-control">
-												    <label for="txt_membresia_sesiones" class="active">Sesiones</label>
+												    <input type="text"  id="txt_membresia_sesiones" class="form-control">
+												    <label for="txt_membresia_sesiones" class="lbl">Sesiones</label>
 												</div>
 											</div>
 											<div class="col">
 												<div class="md-form">
-												    <input type="text" disabled id="txt_membresia_freeze" class="form-control">
-												    <label for="txt_membresia_freeze" class="active">Congelamiento</label>
+												    <input type="text"  id="txt_membresia_freeze" class="form-control">
+												    <label for="txt_membresia_freeze" class="lbl">Congelamiento</label>
 												</div>
 											</div>
 											<div class="col-md-1"></div>
@@ -90,7 +90,7 @@
 											<div class="col">
 												<div class="md-form">
 													<label for="cb_membresia_disciplina_extras" class="active">Disciplinas Extras</label>
-												    <select class="selectpicker" id="cb_membresia_disciplina_extras" data-size="10" data-live-search="true" data-width="100%" data-actions-box="false">
+												    <select class="selectpicker" id="cb_membresia_disciplina_extras" multiple data-size="10" data-live-search="true" data-width="100%" data-actions-box="false">
 							      				
 						    						</select>
 												</div>
@@ -116,8 +116,8 @@
 											</div>
 											<div class="col">
 												<div class="md-form">
-												    <input type="text" id="txt_membresia_descuento_moneda" class="form-control">
-												    <label for="txt_membresia_descuento_moneda" >Descuento</label>
+												    <input type="text" id="txt_membresia_descuento_moneda" class="form-control" value="0">
+												    <label for="txt_membresia_descuento_moneda" class="lbl" >Descuento</label>
 												</div>
 											</div>
 											<div class="col-md-1"></div>
@@ -140,8 +140,8 @@
 									
 						</div> 
 					    </div>
-					    <!--/.Panel 1----------------------------------------------------------------------------------------------------------------------->
-					    <!--/.Panel 2----------------------------------------------------------------------------------------------------------------------->
+					    <!-- /.Panel 1 --------------------------------------------------------------------------------------------------------------------- -->
+					    <!-- /.Panel 2 --------------------------------------------------------------------------------------------------------------------- -->
 					    <div class="tab-pane fade" id="tab_membresia_abonos" role="tabpanel">
 					    	<div class="card card-body">
 					    	
@@ -171,12 +171,12 @@
 								
 					    	</div>
 					    </div>
-					    <!--/.Panel 2----------------------------------------------------------------------------------------------------------------------->
-					    <!--/.Panel 3----------------------------------------------------------------------------------------------------------------------->
+					    <!-- /.Panel 2--------------------------------------------------------------------------------------------------------------------- -->
+					    <!-- /.Panel 3--------------------------------------------------------------------------------------------------------------------- -->
 					    <div class="tab-pane fade" id="tab_membresia_freeze" role="tabpanel">
-					    	CONGELAMIENTOS
+					    	Proximamente ...
 					    </div>
-					    <!--/.Panel 3----------------------------------------------------------------------------------------------------------------------->
+					    <!-- /.Panel 3--------------------------------------------------------------------------------------------------------------------- -->
 					</div>    
 				<!-- /.NAVBAR-------------	-->
          	</div>

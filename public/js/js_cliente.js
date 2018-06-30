@@ -181,11 +181,14 @@ function clientes_index(){
 	
 }
 
+
 function cliente_nueva_membresia(){
 	
 	nom = $('#txt_nombre').val();
 	appat = $('#txt_appat').val();
 	apmat = $('#txt_apmat').val();
+
+	$('#div_content_nueva_membresia').hide();
 	
 	var ws_planes = ws('sp_planes' , [''] );
 	ws_contenido_combo('cb_modal_nueva_membresia_planes', ws_planes, '');
@@ -197,6 +200,31 @@ function cliente_nueva_membresia(){
 	$("#modal_nueva_membresia").modal();  
 	var tbl = ws_datatable("tbl_membresia_abonos", [] , tbl_cab_membresia_abonos , opciones_tbl_membresia_abonos);
 	
+	var ws_disciplinas = ws('sp_disciplinas' , '' );
+	ws_contenido_combo('cb_membresia_disciplina_extras', ws_disciplinas, '');
+
+	var ws_tipo_membresia = ws('sp_tipo_membresia' , '' );
+	ws_contenido_combo('cb_membresia_tipo_membresia', ws_tipo_membresia, '');
+
+	var ws_tipo_membresia = ws('sp_vendedores' , '' );
+	ws_contenido_combo('cb_membresia_vendedor', ws_tipo_membresia, '');
+
+	$("#cb_modal_nueva_membresia_planes").change(function(){
+		var nueva_membresia_planes = $(this).val();
+		var ws_plan = ws('sp_planes' , [nueva_membresia_planes] );
+		
+		console.log(ws_plan);
+		$('.lbl').addClass('active');
+		$('#txt_membresia').val(ws_plan[0]['nom_plan']);
+		$('#txt_membresia_disciplina_principal').val(ws_plan[0]['nom_disciplina']);
+		$('#txt_membresia_precio').val(ws_plan[0]['precio']);
+		$('#txt_membresia_sesiones').val(ws_plan[0]['nro_sesiones']);
+		$('#txt_membresia_freeze').val(ws_plan[0]['nro_dias_freezee']);
+
+		$('#div_content_nueva_membresia').show();
+	});
+
+
 }
 
 function cliente_membresia_anidir_abono(){
