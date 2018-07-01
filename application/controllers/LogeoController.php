@@ -80,7 +80,9 @@ class LogeoController extends Zend_Controller_Action implements Zend_Auth_Adapte
 						$ddatosuserlog->nombre = $datos[0]['nom'];
 						$ddatosuserlog->apepat = $datos[0]['appat'];
 						$ddatosuserlog->apemat = $datos[0]['apmat'];
-						$ddatosuserlog->dni = $datos[0]['dni'];					
+						$ddatosuserlog->dni = $datos[0]['dni'];			
+						$ddatosuserlog->codrol = $datos[0]['cod_rol'];	
+						$ddatosuserlog->rol = $datos[0]['nom_rol'];			
 						$ddatosuserlog->usuario = $user; 
 					
 						echo '<script language=\"JavaScript\">window.open(\''.$url.'index.php\', \'_self\')</script>';

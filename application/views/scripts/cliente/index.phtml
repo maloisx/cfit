@@ -10,7 +10,7 @@
         </div>
         <div class="modal-body">
         
-        
+		<input type="hidden" id="hd_cod_membresia" value="">        
         <div class="row">
 					<div class="col-md-1"></div>
 					<div class="col-md-10">						
@@ -23,7 +23,7 @@
 				</div> 
         <br>
         <div class="row" id="div_content_nueva_membresia">
-<!--        			<div class="col-md-1"></div>-->
+<!--        <div class="col-md-1"></div>-->
 					<div class="col-md-12">
 		        <!-- Nav tabs -->
 					<ul class="nav nav-tabs nav-justified primary-color" role="tablist">
@@ -116,7 +116,7 @@
 											</div>
 											<div class="col">
 												<div class="md-form">
-												    <input type="text" id="txt_membresia_descuento_moneda" class="form-control" value="0">
+												    <input type="text" id="txt_membresia_descuento_moneda" class="form-control">
 												    <label for="txt_membresia_descuento_moneda" class="lbl" >Descuento</label>
 												</div>
 											</div>
@@ -124,11 +124,20 @@
 										</div>
 										<div class="row">
 											<div class="col-md-1"></div>									
-											<div class="col">
+											<div class="col-md-7">
 												<div class="md-form">
 													<label for="cb_membresia_vendedor" class="active">vendedor</label>
 												    <select class="selectpicker" id="cb_membresia_vendedor" data-size="10" data-live-search="true" data-width="100%" data-actions-box="false">
 							      				
+						    						</select>
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="md-form">
+													<label for="cb_membresia_estado" class="active">vendedor</label>
+												    <select class="selectpicker" id="cb_membresia_estado" data-size="10" data-live-search="false" data-width="100%" data-actions-box="false">
+							      						<option value="1" selected='selected'>Activa</option>
+														<option value="0">Anulada</option>
 						    						</select>
 												</div>
 											</div>
@@ -148,14 +157,14 @@
 					    		<div class="row">								
 									<div class="col-md-12">
 										<div class="md-form">
-											<input type="text" disabled id="txt_membresia_precio_final" class="form-control">
-											<label for="txt_membresia_precio_final" class="active">Monto a cancelar</label>
+											<input type="text" readonly id="txt_membresia_precio_final" class="form-control">
+											<label for="txt_membresia_precio_final" class="lbl">Monto a cancelar</label>
 										</div>
 									</div>
 								</div>		
 								<div class="row">								
 									<div class="col-md-12">
-										<button type="button" class="btn btn-primary" id="btn_membresia_anidir_abono" onclick="cliente_membresia_anidir_abono()"><i class="fa fa-money" aria-hidden="true"></i> A&ntilde;adir Abono</button>
+										<button type="button" class="btn btn-primary" id="btn_membresia_anidir_abono" onclick="cliente_membresia_anidir_abono('','','','','')"><i class="fa fa-money" aria-hidden="true"></i> A&ntilde;adir Abono</button>
 									</div>
 								</div>							
 <!--								<div class="card card-body">-->
@@ -180,7 +189,14 @@
 					</div>    
 				<!-- /.NAVBAR-------------	-->
          	</div>
-         </div>       
+			</div> 
+			<div class="row" id="div_content_nueva_membresia_btn_guardar">
+						<div class="col-md-12 text-center">
+							<button type="button" class="btn btn-primary" onclick="cliente_membresia_guardar()" >Guardar</button>
+						</div>						
+					</div>
+
+               
         </div>
       </div>
       
@@ -328,26 +344,25 @@
 					</div>
 			        <!--/. perfil -->
 			    </div>
-			    <!--/.Panel 1----------------------------------------------------------------------------------------------------------------------->
-			    <!--Panel 2----------------------------------------------------------------------------------------------------------------------->
+			    <!-- /.Panel 1--------------------------------------------------------------------------------------------------------------------- -->
+			    <!-- Panel 2--------------------------------------------------------------------------------------------------------------------- -->
 			    <div class="tab-pane fade" id="tab_cliente_pagos" role="tabpanel">
 			        	<div class="row">
 							<div class="col-md-12 text-right">
-								<button type="button" class="btn btn-primary" onclick="cliente_nueva_membresia()" >A&Ntilde;adir Membresia</button>
+								<button type="button" class="btn btn-primary" onclick="cliente_nueva_membresia('')" >A&Ntilde;adir Membresia</button>
 							</div>						
 						</div>
 			    		<div class="card card-body">
 						    <h4 class="card-title">Membresias</h4>						    
-						    <div class="flex-row">
-						        <div class="card card-body">m1</div>
-						        <div class="card card-body">m2</div>
-						        <div class="card card-body">m3</div>
-						        <div class="card card-body">m4</div>
+						    <div class="flex-row" id="div_resumen_cliente_membresias">
+								<!-- -->
+						        		
+								<!-- -->
 						    </div>
 						</div>    
 			        
 			    </div>
-			    <!--/.Panel 2----------------------------------------------------------------------------------------------------------------------->
+			    <!-- /.Panel 2 --------------------------------------------------------------------------------------------------------------------- -->
 			</div>
 
 
@@ -382,7 +397,7 @@
 <script>
 $(document).ready(function() {
 	clientes_index();
-//	$('.mdb-select').material_select();
+	$('.selectpicker').selectpicker('refresh');
 });
 	
 </script>

@@ -41,8 +41,9 @@ function ws_contenido_combo(cb_id_html, data, id_seleccionado) {
     //console.log(cont_combo);
     
     if(cb_id_html != '') {
-    	$('#' + cb_id_html).html(cont_combo);
-    	$('#' + cb_id_html).selectpicker('refresh');
+        $('#' + cb_id_html).html(cont_combo);        
+        $('#' + cb_id_html).selectpicker('refresh');
+        $('#' + cb_id_html).selectpicker('val', id_seleccionado);
     }else{
     	return cont_combo;
     }    
