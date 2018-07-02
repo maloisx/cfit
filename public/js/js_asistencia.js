@@ -183,7 +183,6 @@ function asistencia_llenar_calendario(){
 }
 
 function asistencia_index(){
-
 	
 	ws_datatable("asistencia_tbl_alumnos_clase", [] , tbl_cab_asistencia_tbl_alumnos_clase , opciones_tbl_asistencia_tbl_alumnos_clase);
 	$('#cb_alumnos_reg_clase').change(function(event){ charge_list_boostrap_select_datatable(); });

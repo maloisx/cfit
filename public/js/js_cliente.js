@@ -98,8 +98,7 @@ function clientes_index_tbl_listarclientes(){
 
     //console.log(ws_clientes);
     var tbl = ws_datatable("tbl_clientes", ws_clientes , tbl_cab_cliente , opciones_tbl_cliente);
-    
-    
+   
 }
 function cliente_mantenimiento_modal(cod_cliente){
 	
@@ -264,7 +263,7 @@ function cliente_nueva_membresia(codmembresia){
 	$('#lb_title_nueva_membresia').html("Membresia de "+nom + ' ' + appat + ' ' + apmat);
 
 	var ws_planes = ws('sp_planes' , [''] );
-	var ws_disciplinas = ws('sp_disciplinas' , '' );
+	var ws_disciplinas = ws('sp_disciplinas' , [''] );
 	var ws_tipo_membresia = ws('sp_tipo_membresia' , '' );
 	var ws_vendedores = ws('sp_vendedores' , '' );
 	
