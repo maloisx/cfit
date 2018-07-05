@@ -130,17 +130,21 @@ function ws_datatable(id_div_tbl, data, tbl_cab, opciones) {
     return tbl;
 }
 
-function tbl_ext_btn(name_btn, func) {
+function tbl_ext_btn(name_btn, func , color) {
 
+	if(color == undefined){
+		color = 'light-blue';
+	}
+	
     var btn_n = parseInt(Math.random() * 99999 + 1);
     if (func != undefined) {
 //        html_btn = '<button id="btn_' + btn_n + '" onclick="' + func + '" type="button" class="btn btn-info"><span class="fa fa-' + name_btn + '"></span></button>';
         //html_btn = '<a id="btn_' + btn_n + '" onclick="' + func + '" class="btn-floating btn-sm blue-gradient"><i class="fa fa-' + name_btn + '"></i></a>';
-    	html_btn = '<span id="btn_' + btn_n + '" onclick="' + func + '" class="badge light-blue"><i class="fa fa-' + name_btn + ' fa-2x" aria-hidden="true"></i></span>';
+    	html_btn = '<span id="btn_' + btn_n + '" onclick="' + func + '" class="badge '+color+' "><i class="fa fa-' + name_btn + ' fa-2x" aria-hidden="true"></i></span>';
     } else {
 //        html_btn = '<button id="btn_' + btn_n + '" type="button" class="btn btn-info" onclick=""><span class="fa fa-' + name_btn + '"></span></button>';
         //html_btn = '<a id="btn_' + btn_n + '" class="btn-floating btn-sm blue-gradient"><i class="fa fa-' + name_btn + '"></i></a>';
-    	html_btn = '<span id="btn_' + btn_n + '" class="badge light-blue"><i class="fa fa-' + name_btn + ' fa-2x" aria-hidden="true"></i></span>';
+    	html_btn = '<span id="btn_' + btn_n + '" class="badge '+color+'"><i class="fa fa-' + name_btn + ' fa-2x" aria-hidden="true"></i></span>';
     }
     return html_btn;
 }

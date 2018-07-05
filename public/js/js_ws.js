@@ -10,7 +10,7 @@ function ws(p_sp,p_params) {
 			//console.log("Cargando...");
 		},
 		success: function(requestData){
-			//console.log(requestData);
+			console.log(requestData);
 			respuesta = requestData;
 		},		
 		error: function(requestData, strError, strTipoError){											

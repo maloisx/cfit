@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap-select Tests (Bootstrap 4)</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../dist/css/bootstrap-select.css">
+
+  <style>
+    body {
+      padding-top: 70px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <form role="form">
+    <div class="form-group row">
+      <label for="basic" class="col-lg-2 control-label">"Basic" (liveSearch enabled)</label>
+
+      <div class="col-lg-10">
+        <select id="basic" class="selectpicker show-tick form-control" data-live-search="true">
+          <option>cow</option>
+          <option data-subtext="option subtext">bull</option>
+          <option class="get-class" disabled>ox</option>
+          <optgroup label="test" data-subtext="optgroup subtext">
+            <option>ASD</option>
+            <option selected>Bla</option>
+            <option>Ble</option>
+          </optgroup>
+        </select>
+      </div>
+    </div>
+  </form>
+  
+  
+  <div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10">
+					<div class="md-form">												
+					    <label for="cb_membresia_estado" class="active">Estado</label>
+					    <select class="selectpicker" id="cb_sede_estado" data-size="2" data-live-search="false" data-width="100%" data-actions-box="false">
+      						<option value="1" selected='selected'>Activa</option>
+							<option value="0">Anulada</option>
+    					</select>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+  
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script>
+<script src="../dist/js/bootstrap-select.js"></script>
+
+<script>
+
+</script>
+</body>
+</html>

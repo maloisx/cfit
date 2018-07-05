@@ -205,6 +205,22 @@ function cliente_mantenimiento_modal(cod_cliente){
 
 
 	}else{
+		$('#hd_cod_cliente').val('');
+		$('#lb_title').html('');
+		$('#txt_dni').val('');
+	    $('#txt_nombre').val('');
+	    $('#txt_appat').val('');
+	    $('#txt_apmat').val('');
+	    $('#txt_fec_nac').val('');
+	    $('#cb_sexo').selectpicker('val','');
+	    
+	    $('#txt_telefono').val('');
+	    $('#txt_celular').val('');
+	    $('#txt_email').val('');
+	    $('#txt_direccion').val('');
+	    $('#txt_contact_emergencia').val('');
+		$('#txt_telefono_emergencia').val('');
+		$('#div_resumen_cliente_membresias').html('');
 		$('#li_pagos').addClass('disabled');
 	}
 	
@@ -339,7 +355,7 @@ function cliente_nueva_membresia(codmembresia){
 	});
 
 	if(codmembresia != ''){
-		console.log('entroooooo');
+		//console.log('entroooooo');
 		$("#cb_modal_nueva_membresia_planes" ).trigger( "change" );
 		if(datos_membresia_det_pago){
 			for(var i = 0 ; i <datos_membresia_det_pago.length ; i++){

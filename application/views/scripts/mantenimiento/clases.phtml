@@ -1,0 +1,160 @@
+<!-- --------------   Modal --------------  -->
+  <div class="modal fade" id="modal_mantenimiento_clase" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="lb_title_modal_mantenimiento_clase">Mantenimiento de clase</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>          
+        </div>
+        <div class="modal-body">
+        <form role="form" id="form_modal_clase">	
+        	<input type="hidden" id="hd_modal_clase_codigo" value="">
+        	
+            <div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-5">
+					<div class="md-form">												
+					    <label for="cb_modal_clase_disciplina" class="active">Disciplina</label>
+					    <select class="selectpicker" id="cb_modal_clase_disciplina" data-size="5" data-live-search="false" data-width="100%" data-actions-box="false">
+      						
+    					</select>
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="md-form">												
+					   <label for="cb_modal_clase_entrenador" class="active">Entrenador</label>
+					    <select class="selectpicker" id="cb_modal_clase_entrenador" data-size="5" data-live-search="false" data-width="100%" data-actions-box="false">
+      						
+    					</select>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+			</div>	
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-5">
+					<div class="md-form">												
+					   <label for="cb_modal_clase_sede" class="active">Sede</label>
+					    <select class="selectpicker" id="cb_modal_clase_sede" data-size="5" data-live-search="false" data-width="100%" data-actions-box="false">
+      						
+    					</select>
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="md-form">												
+					   <label for="cb_modal_clase_sala" class="active">Sala</label>
+					    <select class="selectpicker" id="cb_modal_clase_sala" data-size="5" data-live-search="false" data-width="100%" data-actions-box="false">
+      						
+    					</select>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col">
+					<div class="md-form">												
+					    <input type="text" id="txt_modal_clase_aforo" class="form-control" required="true">
+					    <label for="txt_modal_clase_aforo" class="lbl_active">Aforo</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="md-form">												
+					    <input type="date" id="txt_modal_clase_fecha" class="form-control">
+					    <label for="txt_modal_clase_fecha" class="lbl_active">Fecha</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="md-form">												
+					    <input type="time" id="txt_modal_clase_hora_ini" class="form-control">
+					    <label for="txt_modal_clase_hora_ini" class="lbl_active">Hora Inicio</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="md-form">												
+					    <input type="time" id="txt_modal_clase_hora_fin" class="form-control">
+					    <label for="txt_modal_clase_hora_fin" class="lbl_active">Hora Fin</label>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+			</div>	
+			
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10">
+					<div class="md-form">		
+					    <input type="checkbox" class="form-check-input" id="chb_modal_clase_repetir" >
+					    <label class="form-check-label" for="chb_modal_clase_repetir">Repetir clase en varios d&iacute;as</label>	
+					    <br><br>
+					    <div id="div_cb_modal_clase_dias">
+					    	<div class="row">
+					    	<div class="col-md-3">
+					    		<div class="md-form">												
+								    <input type="date" id="txt_modal_clase_fecha_fin" class="form-control">
+								    <label for="txt_modal_clase_fecha_fin" class="lbl_active">Fecha Fin</label>
+								</div>
+					    	</div>
+					    	<div class="col-md-9">
+						    	<select class="selectpicker" id="cb_modal_clase_dias" multiple data-size="7" data-live-search="false" data-width="100%" data-actions-box="false">
+		      					</select>
+					    	</div>
+					    	</div>
+						    
+    					</div>					
+					</div>
+				</div>
+				
+				<div class="col-md-1"></div>
+			</div>		
+				
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10">
+					<div class="md-form">												
+					    <label for="cb_modal_clase_estado" class="active">Estado</label>
+					    <select class="selectpicker" id="cb_modal_clase_estado" data-size="2" data-live-search="false" data-width="100%" data-actions-box="false">
+      						<option value="1" selected='selected'>Activa</option>
+							<option value="0">Anulada</option>
+    					</select>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<button type="button" class="btn btn-primary" onclick="mantenimiento_clase_modal_guardar()" >Guardar</button>
+				</div>						
+			</div>	
+		</form>	
+        </div>
+<!--        <div class="modal-footer">-->
+<!--          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+<!--        </div>-->
+      </div>
+      
+    </div>
+  </div>
+<!-- --------------   Modal --------------  -->
+
+<div class="blue-gradient z-depth-2">
+	<div class="page-header" >
+		<h1 style="padding: 15px">Mantenimiento Clases</h1> 
+	</div>
+</div>
+<br>
+
+
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-10">
+		<div id='div_tbl_clases'></div>
+	</div>
+	<div class="col-md-1"></div>
+</div>
+
+<script>
+mantenimiento_clases();
+</script>

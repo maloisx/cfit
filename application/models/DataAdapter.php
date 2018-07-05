@@ -26,16 +26,18 @@ class Model_DataAdapter {
 		//echo '<textarea>'.$que.'</textarea>';
 
 		$res = mysql_query($que, $conexion) or die(mysql_error());
-		$tot = mysql_num_rows($res);			
-
-	       $conta = 0;
-	       $array = null;
-		   //while($row = mysql_fetch_object($res)) {
-			while($row = mysql_fetch_array($res, MYSQL_BOTH)) {   
-		      $array[] = $row;
-		    }
-		mysql_close($conexion);
-		return $array;
+		
+			$tot = mysql_num_rows($res);			
+	
+		       $conta = 0;
+		       $array = null;
+			   //while($row = mysql_fetch_object($res)) {
+				while($row = mysql_fetch_array($res, MYSQL_BOTH)) {   
+			      $array[] = $row;
+			    }
+			mysql_close($conexion);
+			return $array;
+		
 	}
 	
 }

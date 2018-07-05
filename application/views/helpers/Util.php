@@ -8,6 +8,16 @@ class Zend_View_Helper_Util extends Zend_View_Helper_Abstract {
         return $this;
     }
     
+	public function verified_session() {
+		$ddatosuserlog = new Zend_Session_Namespace('datosuserlog');	
+		if(!$ddatosuserlog->session){
+			$url = $this->view->util()->getPath();
+			Zend_Session::destroy();
+//			$this->_redirect($url.'index.php/');
+			header('Location: ' . $url.'index.php/',true);
+		}        
+    }
+    
 	public function console($msj , $tipo = 'out') {
 		
 		$tipomensaje =  null;

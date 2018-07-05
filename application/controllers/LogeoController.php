@@ -65,9 +65,11 @@ class LogeoController extends Zend_Controller_Action implements Zend_Auth_Adapte
 				//print_r($datos);
 				$caddatos = "";
 				
+				$ddatosuserlog = new Zend_Session_Namespace('datosuserlog');
+				
 				if($datos == '' || $datos == null || count($datos)<=0){
 					echo 'Datos Incorrectos...';
-					$this->flag = false;
+					$ddatosuserlog->session = false;
 				}
 				else{
 //					echo $datos[0]->nom;
@@ -75,7 +77,7 @@ class LogeoController extends Zend_Controller_Action implements Zend_Auth_Adapte
 					
 					if ($datos[0]['estado'] == '1'){	
 											
-						$ddatosuserlog = new Zend_Session_Namespace('datosuserlog');				
+										
 						$ddatosuserlog->codemp = $datos[0]['cod_personal'];
 						$ddatosuserlog->nombre = $datos[0]['nom'];
 						$ddatosuserlog->apepat = $datos[0]['appat'];
@@ -84,14 +86,14 @@ class LogeoController extends Zend_Controller_Action implements Zend_Auth_Adapte
 						$ddatosuserlog->codrol = $datos[0]['cod_rol'];	
 						$ddatosuserlog->rol = $datos[0]['nom_rol'];			
 						$ddatosuserlog->usuario = $user; 
-					
+						$ddatosuserlog->session = true;
 						echo '<script language=\"JavaScript\">window.open(\''.$url.'index.php\', \'_self\')</script>';
 						
 					}else{
 						echo '<font color="#FF0000">Usuario Inactivo...</font>';
 					}
 					
-					$this->flag = true;
+					
 				}
 				
 				//$auth = Zend_Auth::getInstance();

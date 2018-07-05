@@ -134,7 +134,7 @@
 											</div>
 											<div class="col-md-3">
 												<div class="md-form">
-													<label for="cb_membresia_estado" class="active">vendedor</label>
+													<label for="cb_membresia_estado" class="active">Estado</label>
 												    <select class="selectpicker" id="cb_membresia_estado" data-size="10" data-live-search="false" data-width="100%" data-actions-box="false">
 							      						<option value="1" selected='selected'>Activa</option>
 														<option value="0">Anulada</option>
@@ -191,10 +191,10 @@
          	</div>
 			</div> 
 			<div class="row" id="div_content_nueva_membresia_btn_guardar">
-						<div class="col-md-12 text-center">
-							<button type="button" class="btn btn-primary" onclick="cliente_membresia_guardar()" >Guardar</button>
-						</div>						
-					</div>
+				<div class="col-md-12 text-center">
+					<button type="button" class="btn btn-primary" onclick="cliente_membresia_guardar()" >Guardar</button>
+				</div>						
+			</div>
 
                
         </div>
@@ -397,7 +397,6 @@
 <script>
 $(document).ready(function() {
 	clientes_index();
-	$('.selectpicker').selectpicker('refresh');
 });
 	
 </script>

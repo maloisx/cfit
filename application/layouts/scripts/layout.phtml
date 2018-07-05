@@ -17,7 +17,7 @@
 	
 		
 		<?php echo $this->util()->getStyle(); ?>
-		<link href="<?php echo $this->util()->getPath(); ?>theme/blue_explora/jquery-ui.css" rel="stylesheet" type="text/css" id="jquery_theme_link" />
+<!--		<link href="<?php echo $this->util()->getPath(); ?>theme/blue_explora/jquery-ui.css" rel="stylesheet" type="text/css" id="jquery_theme_link" />-->
 		<link href="<?php echo $this->util()->getImage("refbar.ico"); ?>" rel="shortcut icon" type="image/x-icon" />
 		<link href="<?php echo $this->util()->getImage("refbar.ico"); ?>" rel="icon" type="image/x-icon" />
 		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCi3uGbWaukJjhm6WjuStB19XoIslLtvbk"></script>
@@ -28,6 +28,7 @@
 		<link rel="stylesheet" href="<?php echo $this->util()->getPath(); ?>MDB/css/font-awesome.min.css">
 
 	    <link href="<?php echo $this->util()->getPath(); ?>MDB/css/bootstrap.min.css" rel="stylesheet">
+	    
 	    <link href="<?php echo $this->util()->getPath(); ?>/MDB/css/mdb.min.css" rel="stylesheet">
 	    <link href="<?php echo $this->util()->getPath(); ?>MDB/css/style.css" rel="stylesheet">
 		
@@ -101,7 +102,9 @@
 			var path="<?php echo $this->util()->getPath(); ?>";
 		</script>
 			
-			<link href="<?php echo $this->util()->getPath();?>toastr/toastr.min.css" rel="stylesheet" />	
+			<link href="<?php echo $this->util()->getPath();?>toastr/toastr.min.css" rel="stylesheet" />
+				
+			<link rel="stylesheet" href="<?php echo $this->util()->getPath(); ?>bootstrap-select-1.13.1/dist/css/bootstrap-select.css">
 			
 	        	        	       
 		    <link href="<?php echo $this->util()->getPath();?>datatables/css/TableTools.css" rel="stylesheet">
@@ -254,7 +257,7 @@
 		
 	    <script type="text/javascript" src="<?php echo $this->util()->getPath(); ?>MDB/js/mdb.js"></script>
 	    
-		 <link rel="stylesheet" href="<?php echo $this->util()->getPath(); ?>bootstrap-select-1.13.1/dist/css/bootstrap-select.css">		
+				
 		<script type="text/javascript" src="<?php echo $this->util()->getPath(); ?>bootstrap-select-1.13.1/dist/js/bootstrap-select.js"></script>
 		
 		<script src="<?php echo $this->util()->getPath();?>toastr/toastr.min.js"></script>
@@ -276,7 +279,7 @@
            title: " "
            //width : '100%'    
 		});
-		$('.selectpicker').selectpicker('refresh');
+        $('.dropdown-toggle').trigger( "click" ); 
 //        $('select:not(.selectpicker)').material_select();
         </script>
 	</body>
