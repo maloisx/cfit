@@ -698,3 +698,159 @@ function mantenimiento_personal_modal_guardar(){
 		toastr.error("Error en el guardado de perfil.");
 	}
 }
+
+/* **************************************************************************************************************************************************************** */
+/* **************************************************************************************************************************************************************** */
+/* **************************************************************************************************************************************************************** */
+/* **************************************************************************************************************************************************************** */
+/*
+ * MANTENIMIENTO PLANES
+ */
+
+
+var tbl_listar_planes_cab= [ {
+    'sTitle' : 'CODIGO',
+    "sWidth" : "40px",
+    "sClass" : "text-center"
+},{
+    'sTitle' : 'PLAN'
+}, {
+    'sTitle' : 'COD DISCIPLINA'
+},{
+    'sTitle' : 'DISCIPLINA PRINCIPAL'
+},{
+    'sTitle' : 'NRO. SESIONES'
+},{
+    'sTitle' : 'DURAC. MESES'
+},{
+    'sTitle' : 'DURAC. DIAS'
+},{
+    'sTitle' : 'CONGELAMIENTO'
+},{
+    'sTitle' : 'PRECIO'
+},{
+    'sTitle' : 'COD TIPO VENTA'
+},{
+    'sTitle' : 'TIPO VENTA'
+},{
+    'sTitle' : 'COD DISCIPLINAS'
+},{
+    'sTitle' : 'DISCIPLINAS EXTRAS' ,
+    "sWidth" : "100px"
+},{
+    'sTitle' : 'ESTADO',
+    "sWidth" : "40px",
+    "sClass" : "text-center"
+}
+,{
+    'sTitle' : '-',
+    "sWidth" : "40px",
+    "sClass" : "text-center"
+} 
+];	
+
+var tbl_listar_planes_opciones = {
+responsive: false
+, bLengthChange: false
+, bInfo: false
+, bFilter : true
+, bAutoWidth : false
+//, bSort : false
+, aoColumnDefs : [{ "visible": false, "targets": [0,2,4,9,11] }]
+, bPaginate: false
+//, buttons: []
+, buttons: [{text:'NUEVO PLAN',action:function( e, dt, node, config ) {mantenimiento_plan_modal('');},className:'btn btn-info btn-sm'}]
+};
+
+function mantenimiento_plan_tbl_listar(){
+	
+	ws_datos= ws('sp_planes' , [''] );
+
+    for(var i= 0 ; i<ws_datos.length ; i++){
+        var cod = ws_datos[i].cod_plan;
+        var len = Object.keys(ws_datos[i]).length / 2 ;
+        ws_datos[i][len] = tbl_ext_btn('edit',"mantenimiento_plan_modal('"+cod+"')") ;    
+        /*boton de estado*/        	
+        ws_datos[i][13] = ws_datos[i]['estado'] = ((ws_datos[i]['estado'] == 1)?tbl_ext_btn('check',''):tbl_ext_btn('close','','red'));
+    }
+
+    console.log(ws_datos);
+    var tbl = ws_datatable("div_tbl_planes", ws_datos , tbl_listar_planes_cab , tbl_listar_planes_opciones);
+}
+
+function mantenimiento_planes(){
+	
+	mantenimiento_plan_tbl_listar();
+}
+
+
+function mantenimiento_plan_modal(cod){
+	
+	var ws_tipo_venta = ws('sp_tipo_venta',['']);
+	var ws_disciplinas = ws('sp_disciplinas',['']);
+	$('.lbl_active').addClass('active');
+	if(cod != ''){		
+		ws_datos= ws('sp_planes' , [cod] );		
+    	console.log(ws_datos)    ;	
+    	$('#hd_modal_plan_codigo').val(ws_datos[0].cod_plan);	   
+	    $('#txt_modal_plan_nombre').val(ws_datos[0].nom_plan);
+	    ws_contenido_combo('cb_modal_plan_disciplina',ws_disciplinas , ws_datos[0].cod_disciplina);
+	    ws_contenido_combo('cb_modal_plan_disciplinas_extras',ws_disciplinas , (ws_datos[0].cod_disciplinas_extras)?ws_datos[0].cod_disciplinas_extras.split(','):'' );
+	    $('#txt_modal_plan_nro_sesiones').val(ws_datos[0].nro_sesiones);
+	    $('#txt_modal_plan_dia_freeze').val(ws_datos[0].nro_dias_freezee);
+	    $('#txt_modal_plan_duracion_meses').val(ws_datos[0].duracion_meses);
+	    $('#txt_modal_plan_duracion_dias').val(ws_datos[0].duracion_dias);
+	    $('#txt_modal_plan_precio').val(ws_datos[0].precio);
+	    ws_contenido_combo('cb_modal_plan_tipo_venta',ws_tipo_venta , ws_datos[0].cod_tipo_venta);
+	    
+	    $('#cb_modal_plan_estado').selectpicker('val',ws_datos[0]['estado']);	    
+	    
+	}else{
+		$('#hd_modal_plan_codigo').val('');	   
+	    $('#txt_modal_plan_nombre').val('');
+	    ws_contenido_combo('cb_modal_plan_disciplina',ws_disciplinas , '');
+	    ws_contenido_combo('cb_modal_plan_disciplinas_extras',ws_disciplinas ,'');
+	    $('#txt_modal_plan_nro_sesiones').val('0');
+	    $('#txt_modal_plan_dia_freeze').val('0');
+	    $('#txt_modal_plan_duracion_meses').val('0');
+	    $('#txt_modal_plan_duracion_dias').val('0');
+	    $('#txt_modal_plan_precio').val('0');
+	    ws_contenido_combo('cb_modal_plan_tipo_venta',ws_tipo_venta , '1');
+	    
+	    $('#cb_modal_plan_estado').selectpicker('val','1');
+	 }
+	
+	$("#modal_mantenimiento_plan").modal();    
+}
+
+function mantenimiento_plan_modal_guardar(){
+	
+	cod = $('#hd_modal_plan_codigo').val();
+	nom_plan = $('#txt_modal_plan_nombre').val();
+	cod_disciplina_princ   = $('#cb_modal_plan_disciplina').val();	
+	sesiones  = $('#txt_modal_plan_nro_sesiones').val();
+	meses = $('#txt_modal_plan_duracion_meses').val();
+	dias = $('#txt_modal_plan_duracion_dias').val();
+	freeze = $('#txt_modal_plan_dia_freeze').val();	
+	precio = $('#txt_modal_plan_precio').val();
+	cod_tipo_venta = $('#cb_modal_plan_tipo_venta').val();
+	
+	cod_disciplina_extras  = $('#cb_modal_plan_disciplinas_extras').val().join(',');
+	
+	estado = $('#cb_modal_plan_estado').val();
+		
+	var array_param =  [cod,nom_plan,cod_disciplina_princ,sesiones,meses,dias,freeze,precio,cod_tipo_venta,estado,cod_disciplina_extras] ;
+	console.log(array_param);
+	
+	var data = ws('sp_reg_plan' , array_param );
+	
+	if( data[0].msj == 'ok'){
+		$('#hd_modal_plan_codigo').val(data[0].cod_plan);
+		//$('#lb_title').html(nom.toUpperCase() + ' ' + appat.toUpperCase() + ' ' + apmat.toUpperCase());
+		toastr.success("Plan Guardado con exito");
+		//$('#li_pagos').removeClass('disabled');
+		mantenimiento_plan_tbl_listar();
+    }else{
+		toastr.error("Error en el guardado de Plan.");
+	}
+}

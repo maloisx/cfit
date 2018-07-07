@@ -14,8 +14,8 @@ class MantenimientoController extends Zend_Controller_Action {
 	 * The default action - show the home page
 	 */
 	public function init() {
-		$this->view->util()->registerScriptJSController($this->getRequest());
-		$this->view->util()->verified_session();
+		$this->view->util ()->registerScriptJSController ( $this->getRequest () );
+		$this->view->util ()->verified_session ();
 	}
 	public function indexAction() {
 		// TODO Auto-generated MantenimientoController::indexAction() default action
@@ -28,15 +28,19 @@ class MantenimientoController extends Zend_Controller_Action {
 	public function sedesAction() {
 		// TODO Auto-generated MantenimientoController::indexAction() default action
 	}
-public function salasAction() {
+	public function salasAction() {
 		// TODO Auto-generated MantenimientoController::indexAction() default action
 	}
 	
-public function clasesAction() {
+	public function clasesAction() {
 		// TODO Auto-generated MantenimientoController::indexAction() default action
 	}
 	
-public function personalAction() {
+	public function personalAction() {
+		// TODO Auto-generated MantenimientoController::indexAction() default action
+	}
+	
+	public function planesAction() {
 		// TODO Auto-generated MantenimientoController::indexAction() default action
 	}
 

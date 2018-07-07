@@ -1,0 +1,153 @@
+<!-- --------------   Modal --------------  -->
+  <div class="modal fade" id="modal_mantenimiento_plan" role="dialog">
+    <div class="modal-dialog modal-md">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="lb_title_modal_mantenimiento_plan">Mantenimiento de Planes</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>          
+        </div>
+        <div class="modal-body">
+        	<input type="hidden" id="hd_modal_plan_codigo" value="">
+        	
+            <div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10">
+					<div class="md-form">												
+					    <input type="text" id="txt_modal_plan_nombre" class="form-control">
+					    <label for="txt_modal_plan_nombre" class="lbl_active">Nombre de plan</label>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+			</div>	
+			
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10">
+					<div class="md-form">												
+					   <label for="cb_modal_plan_disciplina" class="active">Disciplina Principal</label>
+					    <select class="selectpicker" id="cb_modal_plan_disciplina" data-size="10" data-live-search="false" data-width="100%" data-actions-box="false">
+      						
+    					</select>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10">
+					<div class="md-form">												
+					   <label for="cb_modal_plan_disciplinas_extras"  class="active">Disciplinas Extras</label>
+					    <select class="selectpicker" id="cb_modal_plan_disciplinas_extras" multiple data-size="10" data-live-search="false" data-width="100%" data-actions-box="false">
+      						
+    					</select>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-5">
+					<div class="md-form">												
+					    <input type="text" id="txt_modal_plan_nro_sesiones" class="form-control">
+					    <label for="txt_modal_plan_nro_sesiones" class="lbl_active">Nro. Sesiones</label>
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="md-form">												
+					    <input type="text" id="txt_modal_plan_dia_freeze" class="form-control">
+					    <label for="txt_modal_plan_dia_freeze" class="lbl_active">Dias Congelamiento</label>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-5">
+					<div class="md-form">												
+					    <input type="text" id="txt_modal_plan_duracion_meses" class="form-control">
+					    <label for="txt_modal_plan_duracion_meses" class="lbl_active">Duraci&oacute;n Meses</label>
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="md-form">												
+					    <input type="text" id="txt_modal_plan_duracion_dias" class="form-control">
+					    <label for="txt_modal_plan_duracion_dias" class="lbl_active">Duraci&oacute;n D&iacute;as</label>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+			
+			<hr>
+			
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-5">
+					<div class="md-form">												
+					    <input type="text" id="txt_modal_plan_precio" class="form-control">
+					    <label for="txt_modal_plan_duracion_meses" class="lbl_active">Precio</label>
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="md-form">												
+					    <label for="cb_modal_plan_tipo_venta" class="active">Tipo de venta</label>
+					    <select class="selectpicker" id="cb_modal_plan_tipo_venta" data-size="10" data-live-search="false" data-width="100%" data-actions-box="false">
+      						
+    					</select>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+			
+			<hr>
+			
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10">
+					<div class="md-form">												
+					    <label for="cb_modal_plan_estado" class="active">Estado</label>
+					    <select class="selectpicker" id="cb_modal_plan_estado" data-size="2" data-live-search="false" data-width="100%" data-actions-box="false">
+      						<option value="1" selected='selected'>Activa</option>
+							<option value="0">Anulada</option>
+    					</select>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<button type="button" class="btn btn-primary" onclick="mantenimiento_plan_modal_guardar()" >Guardar</button>
+				</div>						
+			</div>	
+        </div>
+<!--        <div class="modal-footer">-->
+<!--          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+<!--        </div>-->
+      </div>
+      
+    </div>
+  </div>
+<!-- --------------   Modal --------------  -->
+
+<div class="blue-gradient z-depth-2">
+	<div class="page-header" >
+		<h1 style="padding: 15px">Mantenimiento Planes</h1> 
+	</div>
+</div>
+<br>
+
+
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-10">
+		<div id='div_tbl_planes'></div>
+	</div>
+	<div class="col-md-1"></div>
+</div>
+
+<script>
+mantenimiento_planes();
+</script>
