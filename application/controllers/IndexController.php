@@ -3,6 +3,8 @@
 class IndexController extends Zend_Controller_Action {
 
 	public function init() {
+		$this->view->util ()->registerScriptJSController ( $this->getRequest () );
+		$this->view->util ()->verified_session ();		
 	}
 
 	public function indexAction() {
@@ -43,16 +45,8 @@ class IndexController extends Zend_Controller_Action {
 				
 	}
 	
-	public function iframeAction() {
+	public function dashboardAction() {
 		
-		$this->_helper->viewRenderer->setNoRender(); 
-//		$this->_helper->layout->disableLayout();
-		
-		$url = $this->_request->getParam('url','');
-		
-		//$this->_redirect($url);
-		echo '<iframe height="100%" width="100%" src="'.$url.'"></iframe>';
-				
 	}
 	
 }

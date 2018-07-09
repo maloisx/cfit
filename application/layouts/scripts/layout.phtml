@@ -144,7 +144,31 @@
             <script type="text/javascript"  src="<?php echo $this->util()->getPath();?>datatables/ext/dataTables.responsive.min.js"></script>
             <script type="text/javascript"  src="<?php echo $this->util()->getPath();?>datatables/ext/responsive.bootstrap.min.js"></script>    
 	        
-	       
+	        <script src="<?php echo $this->util()->getPath();?>highcharts/highcharts.js"></script>
+            <script src="<?php echo $this->util()->getPath();?>highcharts/highcharts-more.js"></script>
+            <script src="<?php echo $this->util()->getPath();?>highcharts/data.js"></script>
+            <script src="<?php echo $this->util()->getPath();?>highcharts/heatmap.js"></script>
+            <script src="<?php echo $this->util()->getPath();?>highcharts/exporting.js"></script>
+
+            <script>
+            Highcharts.setOptions({
+                    lang: {
+                            months: ["ENERO","FEBRERO","MARZO","ABRIL","MAYO","JUNIO","JULIO","AGOSTO","SEPTIEMBRE","OCTUBRE","NOVIEMBRE","DICIEMBRE"],
+                            weekdays: ["DOMINGO","LUNES","MARTES","MIERCOLES","JUEVES","VIERNES","SABADO"],
+                            downloadJPEG: "Descargar JPEG",
+                            downloadPDF: "Descargar PDF",
+                            downloadPNG: "Descargar PNG",
+                            downloadSVG: "Descargar SVG vector",
+                            drillUpText: "Retornar a {series.name}",
+                            loading: "Cargando...",
+                            noData: "No se encuentra datos para mostrar",
+                            printChart: "Imprimir Gr&aacute;fico",
+                            resetZoom: "Resetear zoom",
+                            resetZoomTitle: "Resetear nivel de zoom 1:1",
+                            shortMonths: ["ENE","FEB","MAR","ABR","MAY","JUN","JUL","AGO","SEP","OCT","NOV","DIC"]
+                    }
+            });
+            </script>
 	        
 <!--	        <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'></script>  -->
 	        <?php
