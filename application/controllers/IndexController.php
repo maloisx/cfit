@@ -16,7 +16,7 @@ class IndexController extends Zend_Controller_Action {
 		if($codemp == '' || $codemp == null){
 			$this->_redirect($url.'index.php/logeo/');
 		}else{
-			echo 'Bienvenido '.$nompers;
+			$this->_redirect($url.'index.php/index/dashboard');
 		}
 //		echo 'proyecto limpio<br><br>';
 		

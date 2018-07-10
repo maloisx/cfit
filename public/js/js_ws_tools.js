@@ -59,12 +59,13 @@ function ws_datatable(id_div_tbl, data, tbl_cab, opciones) {
     var opciones_default = {
         responsive: true
         , bFilter: true
-        , bLengthChange: false
+        , lengthChange: false
         , bInfo: false
         , bPaginate: false
         , bAutoWidth : true
         , aoColumnDefs : []
-        , bSort: true                
+        , bSort: true          
+        , pageLength : 10
         //, dom: "Blfrtip"
         , dom: '<"row"<"col-6"B><"col-6 float-right"f>><"row"<"col-12 "p>>rt<"bottom"><"clear">'
         , buttons: [{extend: 'excel', text: 'Exportar a Excel', className: 'btn btn-info btn-sm'}]
@@ -105,7 +106,7 @@ function ws_datatable(id_div_tbl, data, tbl_cab, opciones) {
         
        var tbl = $('#tbl_dt_' + id_div_tbl).dataTable({
         "bFilter": (opciones.bFilter != undefined)?opciones.bFilter : opciones_default.bFilter,
-        "bLengthChange": (opciones.bLengthChange != undefined)?opciones.bLengthChange : opciones_default.bLengthChange,
+        "lengthChange": (opciones.lengthChange != undefined)?opciones.lengthChange : opciones_default.lengthChange,
         "bInfo": (opciones.bInfo != undefined)?opciones.bInfo : opciones_default.bInfo,
         "bPaginate": (opciones.bPaginate != undefined)?opciones.bPaginate : opciones_default.bPaginate,
         "bScrollCollapse": true,
@@ -113,6 +114,7 @@ function ws_datatable(id_div_tbl, data, tbl_cab, opciones) {
         "aoColumns": tbl_cab,
         "bSort" : (opciones.bSort != undefined)?opciones.bSort : opciones_default.bSort,
         "bAutoWidth": (opciones.bAutoWidth != undefined)?opciones.bAutoWidth : opciones_default.bAutoWidth,
+        "pageLength" : (opciones.pageLength != undefined)?opciones.pageLength : opciones_default.pageLength,
         "aoColumnDefs" : (opciones.aoColumnDefs != undefined)?opciones.aoColumnDefs : opciones_default.aoColumnDefs,
         "aaData": tbl_data,
         "fixedColumns": true,
