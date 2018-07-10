@@ -4,7 +4,7 @@ class IndexController extends Zend_Controller_Action {
 
 	public function init() {
 		$this->view->util ()->registerScriptJSController ( $this->getRequest () );
-		$this->view->util ()->verified_session ();		
+		//$this->view->util ()->verified_session ();		
 	}
 
 	public function indexAction() {

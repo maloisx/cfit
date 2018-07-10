@@ -5,13 +5,17 @@ function dashboard(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function dashboard_ingresos_ultimo_anio_disciplina(){
 	
+	ws_datos = ws('sp_dashboard_ingresos_mensuales_disciplina','');
+	console.log(ws_datos);
+
+
 	Highcharts.chart('div_graf_ingreso_disciplinas', {
 	    chart: {
 	        type: 'line'
 	    },
-//	    title: {
-//	        text: 'Monthly Average Temperature'
-//	    },
+	    title: {
+	        text: ''
+	    },
 //	    subtitle: {
 //	        text: 'Source: WorldClimate.com'
 //	    },
