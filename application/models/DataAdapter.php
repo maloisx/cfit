@@ -6,7 +6,7 @@ class Model_DataAdapter {
 	public function ejec_store_procedura_mysql($nombrestore,$arraydatos = null)
 	{		
 		$conexion = mysql_connect("localhost", "root", "root");
-		mysql_select_db("cfit", $conexion);
+		mysql_select_db("tree", $conexion);
 		mysql_query("SET NAMES 'utf8'");
 		
 		$caddatos = ' ( ';

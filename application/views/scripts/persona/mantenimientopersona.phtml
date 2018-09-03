@@ -1,0 +1,189 @@
+<!-- --------------   Modal --------------  -->
+  <div class="modal fade" id="modal_mantenimiento_persona" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="lb_title_modal_mantenimiento_persona">Mantenimiento de persona</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>          
+        </div>
+        <div class="modal-body">
+        	<input type="hidden" id="hd_modal_persona_codigo" value="">
+        	
+        	<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-5">
+							<div class="md-form">
+							    <input type="text" id="txt_dni" class="form-control">
+							    <label for="txt_dni" class="lbl_active" >DNI</label>
+							</div>
+						</div>
+					</div>	       
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-5">
+							<div class="md-form">
+							    <input type="text" id="txt_nombre" class="form-control">
+							    <label for="txt_nombre"  class="lbl_active" >Nombres</label>
+							</div>
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-5">
+							<div class="md-form">
+							    <input type="text" id="txt_appat" class="form-control">
+							    <label for="txt_appat"  class="lbl_active" >Apellido Paterno</label>
+							</div>
+						</div>	
+						<div class="col-md-5">
+							<div class="md-form">
+							    <input type="text" id="txt_apmat" class="form-control">
+							    <label for="txt_apmat"  class="lbl_active" >Apellido Materno</label>
+							</div>
+						</div>		
+						<div class="col-md-1"></div>
+					</div>
+					
+					<div class="row">
+					<div class="col-md-1"></div>
+						<div class="col-md-5">
+							<div class="md-form">
+							    <input type="date" id="txt_fec_nac" class="form-control" value="">
+							    <label for="txt_fec_nac" class="active" >Fecha de Nacimiento</label>
+							</div>
+						</div>	
+						<div class="col-md-5">
+							<div class="md-form input-field">							
+							    <select id="cb_sexo" class="selectpicker"  data-size="3" data-live-search="false" data-width="100%" data-actions-box="false" >
+						  			<option value="" disabled selected>Selecciona..</option>
+								    <option value="M">Masculino</option>
+								    <option value="F">Femenino</option>
+								</select>
+								<label class="active" >Sexo</label>
+							</div>
+						</div>	
+						<div class="col-md-1"></div>					
+					</div>
+										
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-3">
+							<div class="md-form">
+							    <input type="text" id="txt_telefono" class="form-control">
+							    <label for="txt_telefono"  class="lbl_active" >Telefono</label>
+							</div>
+						</div>	
+						<div class="col-md-3">
+							<div class="md-form">
+							   <input type="text" id="txt_celular" class="form-control">
+							    <label for="txt_celular"  class="lbl_active" >Celular</label>
+							</div>
+						</div>	
+						<div class="col-md-4">
+							<div class="md-form input-field">							
+							    <input type="text" id="txt_email" class="form-control">
+							    <label for="txt_email" class="lbl_active"  >Correo</label>
+							</div>
+						</div>	
+						<div class="col-md-1"></div>					
+					</div>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<div class="md-form">
+							    <input type="text" id="txt_direccion" class="form-control">
+							    <label for="txt_direccion"  class="lbl_active" >Direccion</label>
+							</div>
+						</div>
+					</div>	  
+					<hr>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-3">
+							<div class="md-form">
+							    <select id="cb_rol" class="selectpicker"  data-size="10" data-live-search="false" data-width="100%" data-actions-box="false" >
+						  			
+								</select>
+								<label class="active" for="cb_rol"  class="lbl_active" >ROL</label>
+							</div>
+						</div>		
+						<div class="col-md-3">
+							<div class="md-form">
+							   <input type="text" id="txt_user" class="form-control">
+							    <label for="txt_user"  class="lbl_active" >Usuario</label>
+							</div>
+						</div>	
+						<div class="col-md-4">
+							<div class="md-form input-field">							
+							    <input type="password" id="txt_pass" class="form-control" placeholder="Dejar en blanco para no cambiar clave" autocomplete="new-password">
+							    <label for="txtpass" class="lbl_active"  >Clave</label>
+							</div>
+						</div>					
+						<div class="col-md-1"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<div class="md-form">												
+							    <label for="cb_disciplinas" class="active">Disciplinas</label>
+							    <select class="selectpicker" id="cb_disciplinas" data-size="5" multiple data-live-search="false" data-width="100%" data-actions-box="false">
+		      					</select>
+							</div>
+						</div>						
+						<div class="col-md-1"></div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<div class="md-form">												
+							    <label for="cb_modal_persona_estado" class="active">Estado</label>
+							    <select class="selectpicker" id="cb_modal_persona_estado" data-size="2" data-live-search="false" data-width="100%" data-actions-box="false">
+		      						<option value="1" selected='selected'>Activa</option>
+									<option value="0">Anulada</option>
+		    					</select>
+							</div>
+						</div>						
+						<div class="col-md-1"></div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<button type="button" class="btn btn-primary" onclick="mantenimiento_persona_modal_guardar()" >Guardar</button>
+						</div>						
+					</div>
+				
+			
+			
+            	
+        </div>
+<!--        <div class="modal-footer">-->
+<!--          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+<!--        </div>-->
+      </div>
+      
+    </div>
+  </div>
+<!-- --------------   Modal --------------  -->
+
+<div class="blue-gradient z-depth-2">
+	<div class="page-header" >
+		<h1 style="padding: 15px">Mantenimiento de persona</h1> 
+	</div>
+</div>
+<br>
+
+
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-10">
+		<div id='div_tbl_persona'></div>
+	</div>
+	<div class="col-md-1"></div>
+</div>
+
+<script>
+mantenimiento_persona();
+</script>
